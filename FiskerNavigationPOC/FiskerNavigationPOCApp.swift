@@ -11,7 +11,7 @@ import SwiftUI
 struct FiskerNavigationPOCApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }

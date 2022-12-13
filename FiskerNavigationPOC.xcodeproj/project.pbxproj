@@ -8,17 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		3F046DCC293AF04F0081BDC5 /* FiskerNavigationPOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F046DCB293AF04F0081BDC5 /* FiskerNavigationPOCApp.swift */; };
-		3F046DCE293AF04F0081BDC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F046DCD293AF04F0081BDC5 /* ContentView.swift */; };
+		3F046DCE293AF04F0081BDC5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F046DCD293AF04F0081BDC5 /* HomeView.swift */; };
 		3F046DD0293AF0500081BDC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F046DCF293AF0500081BDC5 /* Assets.xcassets */; };
 		3F046DD3293AF0500081BDC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F046DD2293AF0500081BDC5 /* Preview Assets.xcassets */; };
+		3F046DDA293AFB580081BDC5 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F046DD9293AFB580081BDC5 /* TempView.swift */; };
+		3F046DDC293B085C0081BDC5 /* ConnectedCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F046DDB293B085C0081BDC5 /* ConnectedCarView.swift */; };
+		3F046DDE293B08990081BDC5 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F046DDD293B08990081BDC5 /* MenuView.swift */; };
+		3F8D47A7294845C3004A6A2B /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47A6294845C3004A6A2B /* CarDetailsView.swift */; };
+		3F8D47AB294857D2004A6A2B /* NavigationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47A9294857D2004A6A2B /* NavigationModifier.swift */; };
+		3F8D47AC294857D2004A6A2B /* NavigationToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47AA294857D2004A6A2B /* NavigationToolbar.swift */; };
+		3FB0FCA62941D2BF00B413C3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB0FCA42941D2B100B413C3 /* Colors.xcassets */; };
+		3FB0FCA72941D2BF00B413C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB0FCA52941D2BE00B413C3 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F046DC8293AF04F0081BDC5 /* FiskerNavigationPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiskerNavigationPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F046DCB293AF04F0081BDC5 /* FiskerNavigationPOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiskerNavigationPOCApp.swift; sourceTree = "<group>"; };
-		3F046DCD293AF04F0081BDC5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3F046DCD293AF04F0081BDC5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3F046DCF293AF0500081BDC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F046DD2293AF0500081BDC5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3F046DD9293AFB580081BDC5 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
+		3F046DDB293B085C0081BDC5 /* ConnectedCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedCarView.swift; sourceTree = "<group>"; };
+		3F046DDD293B08990081BDC5 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		3F8D47A6294845C3004A6A2B /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
+		3F8D47A9294857D2004A6A2B /* NavigationModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationModifier.swift; sourceTree = "<group>"; };
+		3F8D47AA294857D2004A6A2B /* NavigationToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationToolbar.swift; sourceTree = "<group>"; };
+		3FB0FCA42941D2B100B413C3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		3FB0FCA52941D2BE00B413C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +67,17 @@
 		3F046DCA293AF04F0081BDC5 /* FiskerNavigationPOC */ = {
 			isa = PBXGroup;
 			children = (
-				3F046DCB293AF04F0081BDC5 /* FiskerNavigationPOCApp.swift */,
-				3F046DCD293AF04F0081BDC5 /* ContentView.swift */,
+				3F8D47A8294857D2004A6A2B /* Global */,
+				3FB0FCA42941D2B100B413C3 /* Colors.xcassets */,
 				3F046DCF293AF0500081BDC5 /* Assets.xcassets */,
+				3FB0FCA52941D2BE00B413C3 /* Images.xcassets */,
+				3F046DCB293AF04F0081BDC5 /* FiskerNavigationPOCApp.swift */,
+				3F046DCD293AF04F0081BDC5 /* HomeView.swift */,
 				3F046DD1293AF0500081BDC5 /* Preview Content */,
+				3F046DD9293AFB580081BDC5 /* TempView.swift */,
+				3F046DDB293B085C0081BDC5 /* ConnectedCarView.swift */,
+				3F046DDD293B08990081BDC5 /* MenuView.swift */,
+				3F8D47A6294845C3004A6A2B /* CarDetailsView.swift */,
 			);
 			path = FiskerNavigationPOC;
 			sourceTree = "<group>";
@@ -65,6 +88,15 @@
 				3F046DD2293AF0500081BDC5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3F8D47A8294857D2004A6A2B /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				3F8D47A9294857D2004A6A2B /* NavigationModifier.swift */,
+				3F8D47AA294857D2004A6A2B /* NavigationToolbar.swift */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +157,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FB0FCA62941D2BF00B413C3 /* Colors.xcassets in Resources */,
+				3FB0FCA72941D2BF00B413C3 /* Images.xcassets in Resources */,
 				3F046DD3293AF0500081BDC5 /* Preview Assets.xcassets in Resources */,
 				3F046DD0293AF0500081BDC5 /* Assets.xcassets in Resources */,
 			);
@@ -137,7 +171,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F046DCE293AF04F0081BDC5 /* ContentView.swift in Sources */,
+				3F046DDE293B08990081BDC5 /* MenuView.swift in Sources */,
+				3F046DDA293AFB580081BDC5 /* TempView.swift in Sources */,
+				3F8D47AB294857D2004A6A2B /* NavigationModifier.swift in Sources */,
+				3F046DDC293B085C0081BDC5 /* ConnectedCarView.swift in Sources */,
+				3F046DCE293AF04F0081BDC5 /* HomeView.swift in Sources */,
+				3F8D47AC294857D2004A6A2B /* NavigationToolbar.swift in Sources */,
+				3F8D47A7294845C3004A6A2B /* CarDetailsView.swift in Sources */,
 				3F046DCC293AF04F0081BDC5 /* FiskerNavigationPOCApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +235,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

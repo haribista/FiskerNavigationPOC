@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "card5_fisker-ronin.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
