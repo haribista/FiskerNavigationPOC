@@ -16,8 +16,7 @@ struct FeedView: View {
 struct CarDetailDetailsView: View {
     var body: some View {
         Text("Car Detail Details View")
-            .navigationTitle("Fisker")
-            .navigationBarTitleDisplayMode(.inline)
+            .fiskerToolbar(showBackButton: true, title: "Fisker", showMenu: true)
     }
 }
 
@@ -32,30 +31,32 @@ struct HomeView: View {
     @State var showMenu = false
     
     var body: some View {
-        ZStack(alignment: .top) {
-            NavigationView {
-                TabView {
-                    ConnectedCarView()
-                        .tabItem {
-                            Label("Car", systemImage: "tray.and.arrow.down.fill")
+        GeometryReader { geometry in
+            ZStack(alignment: .top) {
+                NavigationView {
+                    TabView {
+                        ConnectedCarView()
+                            .tabItem {
+                                Label("Car", systemImage: "tray.and.arrow.down.fill")
+                            }
+                        FeedView()
+                            .tabItem {
+                                Label("Feed", systemImage: "tray.and.arrow.up.fill")
+                            }
+                        DiscoverView()
+                            .tabItem {
+                                Label("Discover", systemImage: "person.crop.circle.fill")
+                            }
+                    }
+                    .onMenuToggleNotification {
+                        withAnimation {
+                            showMenu.toggle()
                         }
-                    FeedView()
-                        .tabItem {
-                            Label("Feed", systemImage: "tray.and.arrow.up.fill")
-                        }
-                    DiscoverView()
-                        .tabItem {
-                            Label("Discover", systemImage: "person.crop.circle.fill")
-                        }
+                    }
+                    .fiskerToolbar(showBackButton: false, title: "Fisker", showMenu: true)
                 }
-                .onMenuToggleNotification {
-                    showMenu.toggle()
-                }
-                .fiskerToolbar(showBackButton: false, title: "Fisker", showMenu: true)
-            }
-            
-            if showMenu {
-                MenuView(showMenu: $showMenu)
+                
+                MenuView(showMenu: $showMenu, width: geometry.size.width)
             }
         }
     }

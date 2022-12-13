@@ -17,6 +17,7 @@
 		3F8D47A7294845C3004A6A2B /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47A6294845C3004A6A2B /* CarDetailsView.swift */; };
 		3F8D47AB294857D2004A6A2B /* NavigationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47A9294857D2004A6A2B /* NavigationModifier.swift */; };
 		3F8D47AC294857D2004A6A2B /* NavigationToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47AA294857D2004A6A2B /* NavigationToolbar.swift */; };
+		3F8D47AE2948790C004A6A2B /* TempSlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47AD2948790C004A6A2B /* TempSlideMenu.swift */; };
 		3FB0FCA62941D2BF00B413C3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB0FCA42941D2B100B413C3 /* Colors.xcassets */; };
 		3FB0FCA72941D2BF00B413C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB0FCA52941D2BE00B413C3 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		3F8D47A6294845C3004A6A2B /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
 		3F8D47A9294857D2004A6A2B /* NavigationModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationModifier.swift; sourceTree = "<group>"; };
 		3F8D47AA294857D2004A6A2B /* NavigationToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationToolbar.swift; sourceTree = "<group>"; };
+		3F8D47AD2948790C004A6A2B /* TempSlideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempSlideMenu.swift; sourceTree = "<group>"; };
 		3FB0FCA42941D2B100B413C3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3FB0FCA52941D2BE00B413C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				3F046DD9293AFB580081BDC5 /* TempView.swift */,
 				3F046DDB293B085C0081BDC5 /* ConnectedCarView.swift */,
 				3F046DDD293B08990081BDC5 /* MenuView.swift */,
+				3F8D47AD2948790C004A6A2B /* TempSlideMenu.swift */,
 				3F8D47A6294845C3004A6A2B /* CarDetailsView.swift */,
 			);
 			path = FiskerNavigationPOC;
@@ -179,6 +182,7 @@
 				3F8D47AC294857D2004A6A2B /* NavigationToolbar.swift in Sources */,
 				3F8D47A7294845C3004A6A2B /* CarDetailsView.swift in Sources */,
 				3F046DCC293AF04F0081BDC5 /* FiskerNavigationPOCApp.swift in Sources */,
+				3F8D47AE2948790C004A6A2B /* TempSlideMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
