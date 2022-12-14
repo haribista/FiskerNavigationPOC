@@ -9,7 +9,12 @@ import SwiftUI
 
 struct TempMenuContent: View {
     var body: some View {
-        List {
+        VStack(alignment: .leading) {
+            
+            Text("")
+            Text("")
+            Text("")
+
             Text("My Profile").onTapGesture {
                 print("My Profile")
             }
@@ -19,7 +24,8 @@ struct TempMenuContent: View {
             Text("Logout").onTapGesture {
                 print("Logout")
             }
-            .background(Color.red)
+            
+            Spacer()
         }
     }
 }

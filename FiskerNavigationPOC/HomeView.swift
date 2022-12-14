@@ -28,7 +28,7 @@ struct DiscoverView: View {
 
 struct HomeView: View {
     
-    @State var showMenu = false
+    @State var showMenu = true
     
     var body: some View {
         GeometryReader { geometry in
@@ -56,7 +56,7 @@ struct HomeView: View {
                     .fiskerToolbar(showBackButton: false, title: "Fisker", showMenu: true)
                 }
                 
-                MenuView(showMenu: $showMenu, width: geometry.size.width)
+                MenuView(showMenu: $showMenu)
             }
         }
     }

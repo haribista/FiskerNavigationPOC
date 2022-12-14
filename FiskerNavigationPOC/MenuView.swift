@@ -9,86 +9,39 @@ import SwiftUI
 
 
 struct MenuView: View {
+    private let offset: CGFloat = 80
+    
     @Binding var showMenu: Bool
     
-    let width: CGFloat
-    
     var body: some View {
-        ZStack {
-            EmptyView()
-                .background(Color.gray.opacity(0.3))
+        GeometryReader { geometry in
+            ZStack {
+                GeometryReader { _ in
+                    EmptyView()
+                }
+                .background(Color.black.opacity(0.65))
                 .opacity(showMenu ? 1.0 : 0.0)
-                .animation(Animation.easeIn.delay(0.25))
-                .onTapGesture {
-                    showMenu = false
-                }
-            
-            HStack {
-                Spacer()
-                
-                VStack(alignment: .leading) {
-                    
-                    Spacer()
-                    
-                    Text("")
-                    
-                    Button {
-                        withAnimation {
-                            showMenu = false
-                        }
-                    } label: {
-                        Text("Close")
-                            .font(.title)
-                    }
-                    
-                    Text("")
-                    
-                    Button {
-                        print("show account.")
-                    } label: {
-                        Text("Account")
-                            .font(.title)
-                    }
-                    
-                    Button {
-                        print("show Home")
-                    } label: {
-                        Text("Home")
-                            .font(.title)
-                    }
-                    
-                    Button {
-                        print("show Home")
-                    } label: {
-                        Text("Discover")
-                            .font(.title)
-                    }
-                    
-                    Button {
-                        print("show My Fisker")
-                    } label: {
-                        Text("My Fisker")
-                            .font(.title)
-                    }
-                    
-                    Spacer()
-                }
-                .frame(width: width)
-                .background(Color.white)
-                .offset(x: showMenu ? 0 : -width)
                 .animation(.default)
-                .background(Color.red)
+                .onTapGesture {
+                    showMenu.toggle()
+                }
+                
+                HStack {
+                    MenuContentView(showMenu: $showMenu)
+                        .frame(width: geometry.size.width - offset)
+                        .background(Color.white)
+                        .offset(x: showMenu ? offset : geometry.size.width)
+                        .animation(.default)
+                }
             }
-            .background(Color.green)
+            .edgesIgnoringSafeArea(.all)
         }
-        .background(Color.green)
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct MenuView_Previews: PreviewProvider {
     @State static var showMenu = true
     static var previews: some View {
-        MenuView(showMenu: $showMenu, width: 300)
+        MenuView(showMenu: $showMenu)
     }
 }
