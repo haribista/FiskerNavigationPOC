@@ -27,13 +27,14 @@ struct DiscoverView: View {
 }
 
 struct HomeView: View {
-    
-    @State var showMenu = true
+    @State var showMenu = false
+
+    @State private var selectedMenuItemType: MenuItemType? = nil
     
     var body: some View {
         GeometryReader { geometry in
-            ZStack(alignment: .top) {
-                NavigationView {
+            NavigationView {
+                ZStack(alignment: .top) {
                     TabView {
                         ConnectedCarView()
                             .tabItem {
@@ -49,14 +50,25 @@ struct HomeView: View {
                             }
                     }
                     .onMenuToggleNotification {
-                        withAnimation {
-                            showMenu.toggle()
-                        }
+                        showMenu.toggle()
                     }
                     .fiskerToolbar(showBackButton: false, title: "Fisker", showMenu: true)
+                    
+                    MenuView(showMenu: $showMenu)
+                    
+                    ForEach(MenuItemType.allCases) { menuItemType in
+                        NavigationLink(
+                            destination: menuItemType.destinationView(),
+                            tag: menuItemType,
+                            selection: $selectedMenuItemType
+                        ) {
+                            EmptyView()
+                        }
+                    }
                 }
+            }
+            .onAppear {
                 
-                MenuView(showMenu: $showMenu)
             }
         }
     }

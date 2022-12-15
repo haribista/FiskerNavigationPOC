@@ -16,6 +16,8 @@
 		3F046DDE293B08990081BDC5 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F046DDD293B08990081BDC5 /* MenuView.swift */; };
 		3F08DA6529496B440035043B /* MenuContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08DA6429496B440035043B /* MenuContentView.swift */; };
 		3F08DA68294A3B010035043B /* MyFisker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08DA67294A3B010035043B /* MyFisker.swift */; };
+		3F08DA6A294A3C720035043B /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08DA69294A3C720035043B /* AccountView.swift */; };
+		3F08DA6C294AA1960035043B /* NavigationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08DA6B294AA1960035043B /* NavigationTest.swift */; };
 		3F8D47A7294845C3004A6A2B /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47A6294845C3004A6A2B /* CarDetailsView.swift */; };
 		3F8D47AB294857D2004A6A2B /* NavigationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47A9294857D2004A6A2B /* NavigationModifier.swift */; };
 		3F8D47AC294857D2004A6A2B /* NavigationToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47AA294857D2004A6A2B /* NavigationToolbar.swift */; };
@@ -35,6 +37,8 @@
 		3F046DDD293B08990081BDC5 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		3F08DA6429496B440035043B /* MenuContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentView.swift; sourceTree = "<group>"; };
 		3F08DA67294A3B010035043B /* MyFisker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFisker.swift; sourceTree = "<group>"; };
+		3F08DA69294A3C720035043B /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		3F08DA6B294AA1960035043B /* NavigationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTest.swift; sourceTree = "<group>"; };
 		3F8D47A6294845C3004A6A2B /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
 		3F8D47A9294857D2004A6A2B /* NavigationModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationModifier.swift; sourceTree = "<group>"; };
 		3F8D47AA294857D2004A6A2B /* NavigationToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationToolbar.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 				3F8D47AD2948790C004A6A2B /* TempSlideMenu.swift */,
 				3F8D47A6294845C3004A6A2B /* CarDetailsView.swift */,
 				3F08DA6429496B440035043B /* MenuContentView.swift */,
+				3F08DA6B294AA1960035043B /* NavigationTest.swift */,
 			);
 			path = FiskerNavigationPOC;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				3F08DA67294A3B010035043B /* MyFisker.swift */,
+				3F08DA69294A3C720035043B /* AccountView.swift */,
 			);
 			path = "My Fisker";
 			sourceTree = "<group>";
@@ -188,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F08DA6A294A3C720035043B /* AccountView.swift in Sources */,
 				3F046DDE293B08990081BDC5 /* MenuView.swift in Sources */,
 				3F046DDA293AFB580081BDC5 /* TempView.swift in Sources */,
 				3F8D47AB294857D2004A6A2B /* NavigationModifier.swift in Sources */,
@@ -195,6 +202,7 @@
 				3F046DDC293B085C0081BDC5 /* ConnectedCarView.swift in Sources */,
 				3F046DCE293AF04F0081BDC5 /* HomeView.swift in Sources */,
 				3F8D47AC294857D2004A6A2B /* NavigationToolbar.swift in Sources */,
+				3F08DA6C294AA1960035043B /* NavigationTest.swift in Sources */,
 				3F8D47A7294845C3004A6A2B /* CarDetailsView.swift in Sources */,
 				3F046DCC293AF04F0081BDC5 /* FiskerNavigationPOCApp.swift in Sources */,
 				3F8D47AE2948790C004A6A2B /* TempSlideMenu.swift in Sources */,

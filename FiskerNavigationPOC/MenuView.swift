@@ -7,6 +7,30 @@
 
 import SwiftUI
 
+//Int, CaseIterable, Hashable, Identifiable
+
+enum MenuItemType: Int, Hashable, CaseIterable, Identifiable {
+    case MyFisker
+    case Account
+    case None
+    
+    var id: Int {
+        rawValue
+    }
+    
+    @ViewBuilder @MainActor
+    func destinationView() -> some View {
+        switch self {
+        case .MyFisker:
+            MyFiskerView()
+        case .Account:
+            AccountView()
+        case .None:
+            EmptyView()
+        }
+    }
+}
+
 
 struct MenuView: View {
     private let offset: CGFloat = 80

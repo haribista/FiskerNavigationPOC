@@ -1,5 +1,5 @@
 //
-//  MyFisker.swift
+//  AccountView.swift
 //  FiskerNavigationPOC
 //
 //  Created by Hari Krishna Bista on 12/14/22.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct MyFiskerView: View {
+struct AccountView: View {
     var body: some View {
-        Text("My Fisker")
+        Text("Account View")
     }
 }
 
-struct MyFiskerView_Previews: PreviewProvider {
+struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        MyFiskerView()
+        AccountView()
     }
 }
