@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MenuContentView: View {
-    @Binding var showMenu: Bool
+    
+    var onMenuItemSelected: (MenuItemType?) -> ()
    
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,9 +19,7 @@ struct MenuContentView: View {
             Text("")
             
             Button {
-                withAnimation {
-                    showMenu = false
-                }
+                onMenuItemSelected(nil)
             } label: {
                 Text("Close")
                     .font(.title)
@@ -29,28 +28,28 @@ struct MenuContentView: View {
             Text("")
             
             Button {
-                print("show account.")
+                onMenuItemSelected(.Account)
             } label: {
                 Text("Account")
                     .font(.title)
             }
             
             Button {
-                print("show Home")
+                onMenuItemSelected(nil)
             } label: {
                 Text("Home")
                     .font(.title)
             }
             
             Button {
-                print("show Home")
+                print("Discover")
             } label: {
                 Text("Discover")
                     .font(.title)
             }
             
             Button {
-                print("show My Fisker")
+                onMenuItemSelected(.MyFisker)
             } label: {
                 Text("My Fisker")
                     .font(.title)
@@ -62,8 +61,11 @@ struct MenuContentView: View {
 }
 
 struct MenuContentView_Previews: PreviewProvider {
-    @State static var showMenu = true
     static var previews: some View {
-        MenuContentView(showMenu: $showMenu)
+        MenuContentView() { selectedMenuItemType in
+            if let selectedMenuItemType = selectedMenuItemType {
+                print("menu selected: \(selectedMenuItemType.rawValue)")
+            }
+        }
     }
 }

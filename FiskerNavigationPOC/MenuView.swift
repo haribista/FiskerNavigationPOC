@@ -7,12 +7,9 @@
 
 import SwiftUI
 
-//Int, CaseIterable, Hashable, Identifiable
-
 enum MenuItemType: Int, Hashable, CaseIterable, Identifiable {
     case MyFisker
     case Account
-    case None
     
     var id: Int {
         rawValue
@@ -25,17 +22,18 @@ enum MenuItemType: Int, Hashable, CaseIterable, Identifiable {
             MyFiskerView()
         case .Account:
             AccountView()
-        case .None:
-            EmptyView()
         }
     }
 }
 
-
 struct MenuView: View {
+    var showMenu: Bool
+    
+    var onMenuItemSelected: (MenuItemType?) -> ()
+    
     private let offset: CGFloat = 80
     
-    @Binding var showMenu: Bool
+    private let animationDuration: Double = 0.35
     
     var body: some View {
         GeometryReader { geometry in
@@ -43,19 +41,19 @@ struct MenuView: View {
                 GeometryReader { _ in
                     EmptyView()
                 }
-                .background(Color.black.opacity(0.65))
-                .opacity(showMenu ? 1.0 : 0.0)
-                .animation(.default)
+                .background(Color.black)
+                .opacity(showMenu ? 0.8 : 0.0)
+                .animation(.easeIn(duration: animationDuration))
                 .onTapGesture {
-                    showMenu.toggle()
+                    onMenuItemSelected(nil)
                 }
                 
                 HStack {
-                    MenuContentView(showMenu: $showMenu)
-                        .frame(width: geometry.size.width - offset)
-                        .background(Color.white)
-                        .offset(x: showMenu ? offset : geometry.size.width)
-                        .animation(.default)
+                    MenuContentView(onMenuItemSelected: onMenuItemSelected)
+                    .frame(width: geometry.size.width - offset)
+                    .background(Color.white)
+                    .offset(x: showMenu ? offset : geometry.size.width)
+                    .animation(.default)
                 }
             }
             .edgesIgnoringSafeArea(.all)
@@ -64,8 +62,11 @@ struct MenuView: View {
 }
 
 struct MenuView_Previews: PreviewProvider {
-    @State static var showMenu = true
     static var previews: some View {
-        MenuView(showMenu: $showMenu)
+        MenuView(showMenu: true) { menuItemType in
+            if let menuItemType = menuItemType {
+                print("\(menuItemType.rawValue)")
+            }
+        }
     }
 }

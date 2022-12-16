@@ -33,42 +33,48 @@ struct HomeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            NavigationView {
-                ZStack(alignment: .top) {
-                    TabView {
-                        ConnectedCarView()
-                            .tabItem {
-                                Label("Car", systemImage: "tray.and.arrow.down.fill")
+            ZStack {
+                NavigationView {
+                    ZStack(alignment: .top) {
+                        TabView {
+                            ConnectedCarView()
+                                .tabItem {
+                                    Label("Car", systemImage: "tray.and.arrow.down.fill")
+                                }
+                            FeedView()
+                                .tabItem {
+                                    Label("Feed", systemImage: "tray.and.arrow.up.fill")
+                                }
+                            DiscoverView()
+                                .tabItem {
+                                    Label("Discover", systemImage: "person.crop.circle.fill")
+                                }
+                        }
+                        .onMenuToggleNotification {
+                            showMenu.toggle()
+                        }
+                        .fiskerToolbar(showBackButton: false, title: "Fisker", showMenu: true)
+                        
+                        ForEach(MenuItemType.allCases) { menuItemType in
+                            NavigationLink(
+                                destination: menuItemType.destinationView(),
+                                tag: menuItemType,
+                                selection: $selectedMenuItemType
+                            ) {
+                                EmptyView()
                             }
-                        FeedView()
-                            .tabItem {
-                                Label("Feed", systemImage: "tray.and.arrow.up.fill")
-                            }
-                        DiscoverView()
-                            .tabItem {
-                                Label("Discover", systemImage: "person.crop.circle.fill")
-                            }
-                    }
-                    .onMenuToggleNotification {
-                        showMenu.toggle()
-                    }
-                    .fiskerToolbar(showBackButton: false, title: "Fisker", showMenu: true)
-                    
-                    MenuView(showMenu: $showMenu)
-                    
-                    ForEach(MenuItemType.allCases) { menuItemType in
-                        NavigationLink(
-                            destination: menuItemType.destinationView(),
-                            tag: menuItemType,
-                            selection: $selectedMenuItemType
-                        ) {
-                            EmptyView()
                         }
                     }
                 }
-            }
-            .onAppear {
                 
+                MenuView(showMenu: showMenu) { selectedMenuItemType in
+                    showMenu = false
+                    if let selectedMenuItemType = selectedMenuItemType {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                            self.selectedMenuItemType = selectedMenuItemType
+                        }
+                    }
+                }
             }
         }
     }
