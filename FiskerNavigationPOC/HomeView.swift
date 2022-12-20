@@ -32,48 +32,46 @@ struct HomeView: View {
     @State private var selectedMenuItemType: MenuItemType? = nil
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                NavigationView {
-                    ZStack(alignment: .top) {
-                        TabView {
-                            ConnectedCarView()
-                                .tabItem {
-                                    Label("Car", systemImage: "tray.and.arrow.down.fill")
-                                }
-                            FeedView()
-                                .tabItem {
-                                    Label("Feed", systemImage: "tray.and.arrow.up.fill")
-                                }
-                            DiscoverView()
-                                .tabItem {
-                                    Label("Discover", systemImage: "person.crop.circle.fill")
-                                }
-                        }
-                        .onMenuToggleNotification {
-                            showMenu.toggle()
-                        }
-                        .fiskerToolbar(showBackButton: false, title: "Fisker", showMenu: true)
-                        
-                        ForEach(MenuItemType.allCases) { menuItemType in
-                            NavigationLink(
-                                destination: menuItemType.destinationView(),
-                                tag: menuItemType,
-                                selection: $selectedMenuItemType
-                            ) {
-                                EmptyView()
+        ZStack {
+            NavigationView {
+                ZStack(alignment: .top) {
+                    TabView {
+                        ConnectedCarView()
+                            .tabItem {
+                                Label("Car", systemImage: "tray.and.arrow.down.fill")
                             }
+                        FeedView()
+                            .tabItem {
+                                Label("Feed", systemImage: "tray.and.arrow.up.fill")
+                            }
+                        DiscoverView()
+                            .tabItem {
+                                Label("Discover", systemImage: "person.crop.circle.fill")
+                            }
+                    }
+                    .onMenuToggleNotification {
+                        showMenu.toggle()
+                    }
+                    .fiskerToolbar(showBackButton: false, title: "Fisker", showMenu: true)
+                    
+                    ForEach(MenuItemType.allCases) { menuItemType in
+                        NavigationLink(
+                            destination: menuItemType.destinationView(),
+                            tag: menuItemType,
+                            selection: $selectedMenuItemType
+                        ) {
+                            EmptyView()
                         }
                     }
                 }
-                
-                MenuView(showMenu: showMenu) { selectedMenuItemType in
-                    showMenu = false
-                    if let selectedMenuItemType = selectedMenuItemType {
-                        let animationDuration: Double = 0.35
-                        DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
-                            self.selectedMenuItemType = selectedMenuItemType
-                        }
+            }
+            
+            MenuView(showMenu: showMenu) { selectedMenuItemType in
+                showMenu = false
+                if let selectedMenuItemType = selectedMenuItemType {
+                    let animationDuration: Double = 0.35
+                    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+                        self.selectedMenuItemType = selectedMenuItemType
                     }
                 }
             }
