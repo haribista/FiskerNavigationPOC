@@ -23,16 +23,12 @@ struct NavigationTest: View {
                     }
                 }
 
-//                Button("My Fisker") {
-//                    selectedMenuItemType = .MyFisker
-//                }
-//
-//                Button("Accccount") {
-//                    selectedMenuItemType = .Account
-//                }
-            }.onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    self.selectedMenuItemType = .MyFisker
+                Button("My Fisker") {
+                    selectedMenuItemType = .MyFisker
+                }
+
+                Button("Accccount") {
+                    selectedMenuItemType = .Account
                 }
             }
         }

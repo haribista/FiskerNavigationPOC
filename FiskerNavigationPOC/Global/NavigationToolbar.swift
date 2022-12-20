@@ -82,8 +82,7 @@ struct NavigationToolbar: ToolbarContent {
 struct NavigationToolbar_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            TempView()
-                .fiskerToolbar(showBackButton: true, title: "Fisker", showMenu: true)
+            CarDetailsView()
         }
     }
 }

@@ -31,9 +31,9 @@ struct MenuView: View {
     
     var onMenuItemSelected: (MenuItemType?) -> ()
     
-    private let offset: CGFloat = 80
-    
+    private let contenOffset: Double = 80
     private let animationDuration: Double = 0.35
+    private let backgroundOpacity: Double = 0.8
     
     var body: some View {
         GeometryReader { geometry in
@@ -42,7 +42,7 @@ struct MenuView: View {
                     EmptyView()
                 }
                 .background(Color.black)
-                .opacity(showMenu ? 0.8 : 0.0)
+                .opacity(showMenu ? backgroundOpacity : 0.0)
                 .animation(.easeIn(duration: animationDuration))
                 .onTapGesture {
                     onMenuItemSelected(nil)
@@ -50,9 +50,9 @@ struct MenuView: View {
                 
                 HStack {
                     MenuContentView(onMenuItemSelected: onMenuItemSelected)
-                    .frame(width: geometry.size.width - offset)
+                    .frame(width: geometry.size.width - contenOffset)
                     .background(Color.white)
-                    .offset(x: showMenu ? offset : geometry.size.width)
+                    .offset(x: showMenu ? contenOffset : geometry.size.width)
                     .animation(.default)
                 }
             }
