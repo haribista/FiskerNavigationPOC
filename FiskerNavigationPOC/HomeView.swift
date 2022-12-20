@@ -68,11 +68,9 @@ struct HomeView: View {
             
             MenuView(showMenu: showMenu) { selectedMenuItemType in
                 showMenu = false
-                if let selectedMenuItemType = selectedMenuItemType {
-                    let animationDuration: Double = 0.35
-                    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
-                        self.selectedMenuItemType = selectedMenuItemType
-                    }
+                let animationDuration: Double = 0.35
+                DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+                    self.selectedMenuItemType = selectedMenuItemType
                 }
             }
         }
