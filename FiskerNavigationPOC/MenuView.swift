@@ -38,22 +38,19 @@ struct MenuView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                GeometryReader { _ in
-                    EmptyView()
-                }
-                .background(Color.black)
-                .opacity(showMenu ? backgroundOpacity : 0.0)
-                .animation(.easeIn(duration: animationDuration))
-                .onTapGesture {
-                    onMenuItemSelected(nil)
-                }
+                Rectangle()
+                    .opacity(showMenu ? 0.8 : 0.0)
+                    .animation(.easeIn(duration: animationDuration))
+                    .onTapGesture {
+                        onMenuItemSelected(nil)
+                    }
                 
                 HStack {
                     MenuContentView(onMenuItemSelected: onMenuItemSelected)
-                    .frame(width: geometry.size.width - contenOffset)
-                    .background(Color.white)
-                    .offset(x: showMenu ? contenOffset : geometry.size.width)
-                    .animation(.default)
+                        .frame(width: geometry.size.width - contenOffset)
+                        .background(Color.white)
+                        .offset(x: showMenu ? contenOffset : geometry.size.width)
+                        .animation(.default)
                 }
             }
             .edgesIgnoringSafeArea(.all)

@@ -34,7 +34,7 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             NavigationView {
-                ZStack(alignment: .top) {
+                ZStack {
                     TabView {
                         ConnectedCarView()
                             .tabItem {

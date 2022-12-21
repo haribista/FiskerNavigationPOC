@@ -6,12 +6,24 @@
 //
 
 import SwiftUI
+import UIKit
 
 extension Notification {
     static let menuToggleNotification = Notification.Name("menuToggleNotification")
 }
 
 extension View {
+    func getSafeAreaTop() -> UIEdgeInsets {
+        let keyWindow = UIApplication.shared.connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .map { $0 as? UIWindowScene }
+            .compactMap { $0 }
+            .first?.windows
+            .filter { $0.isKeyWindow }.first
+
+        return keyWindow?.safeAreaInsets ?? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
     func fiskerToolbar(
         showBackButton: Bool = true,
         title: String,
