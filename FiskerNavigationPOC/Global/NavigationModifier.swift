@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct NavigationModifier: ViewModifier {
-    var showBackButton = true
     var title: String
     var showMenu = true
     
     func body(content: Content) -> some View {
         content
-            .navigationBarBackButtonHidden(true)
             .toolbar {
-                NavigationToolbar(showBackButton: showBackButton, title: title, showMenu: showMenu)
+                NavigationToolbar(title: title, showMenu: showMenu)
             }
     }
 }

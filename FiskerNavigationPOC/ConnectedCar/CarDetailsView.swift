@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CarDetailsView: View {
     var body: some View {
-        
         VStack {
             Text("Car Details View")
             
@@ -17,8 +16,14 @@ struct CarDetailsView: View {
                 Text("go to Details Details")
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .fiskerToolbar(showBackButton: true, title: "Fisker", showMenu: true)
+        .fiskerToolbar(title: "Car Details", showMenu: true)
+    }
+}
+
+struct CarDetailDetailsView: View {
+    var body: some View {
+        Text("Car Detail Details View")
+            .fiskerToolbar(title: "Fisker", showMenu: true)
     }
 }
 

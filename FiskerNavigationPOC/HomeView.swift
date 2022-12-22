@@ -7,27 +7,8 @@
 
 import SwiftUI
 
-struct FeedView: View {
-    var body: some View {
-        Text("FeedView")
-    }
-}
-
-struct CarDetailDetailsView: View {
-    var body: some View {
-        Text("Car Detail Details View")
-            .fiskerToolbar(showBackButton: true, title: "Fisker", showMenu: true)
-    }
-}
-
-struct DiscoverView: View {
-    var body: some View {
-        Text("DiscoverView")
-    }
-}
-
 struct HomeView: View {
-    @State var showMenu = false
+    @State var showMenu = true
 
     @State private var selectedMenuItemType: MenuItemType? = nil
     
@@ -52,7 +33,7 @@ struct HomeView: View {
                     .onMenuToggleNotification {
                         showMenu.toggle()
                     }
-                    .fiskerToolbar(showBackButton: false, title: "Fisker", showMenu: true)
+                    .fiskerToolbar(title: "Fisker", showMenu: true)
                     
                     ForEach(MenuItemType.allCases) { menuItemType in
                         NavigationLink(
@@ -69,8 +50,11 @@ struct HomeView: View {
             MenuView(showMenu: showMenu) { selectedMenuItemType in
                 showMenu = false
                 let animationDuration: Double = 0.35
-                DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
-                    self.selectedMenuItemType = selectedMenuItemType
+                // waiting for menu animation to finish before navigating to other destination
+                if let selectedMenuItemType = selectedMenuItemType {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+                        self.selectedMenuItemType = selectedMenuItemType
+                    }
                 }
             }
         }

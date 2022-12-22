@@ -13,23 +13,12 @@ extension Notification {
 }
 
 extension View {
-    func getSafeAreaTop() -> UIEdgeInsets {
-        let keyWindow = UIApplication.shared.connectedScenes
-            .filter { $0.activationState == .foregroundActive }
-            .map { $0 as? UIWindowScene }
-            .compactMap { $0 }
-            .first?.windows
-            .filter { $0.isKeyWindow }.first
-
-        return keyWindow?.safeAreaInsets ?? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
     
     func fiskerToolbar(
-        showBackButton: Bool = true,
         title: String,
         showMenu: Bool = true
     ) -> some View {
-        modifier(NavigationModifier(showBackButton: showBackButton, title: title, showMenu: showMenu))
+        modifier(NavigationModifier(title: title, showMenu: showMenu))
     }
     
     func onNotification(
@@ -54,24 +43,10 @@ extension View {
 }
 
 struct NavigationToolbar: ToolbarContent {
-    @Environment(\.presentationMode) private var presentationMode
-    
-    @State var showBackButton = true
     @State var title: String
     @State var showMenu = true
 
     var body: some ToolbarContent {
-        ToolbarItem(placement: .navigationBarLeading) {
-            if showBackButton {
-                Button {
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Image("Back_Sml")
-                        .renderingMode(.template)
-                        .foregroundColor(.black)
-                }
-            }
-        }
         
         ToolbarItem(placement: .principal) {
             Text(title)
