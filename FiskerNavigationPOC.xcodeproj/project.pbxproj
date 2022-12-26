@@ -21,6 +21,7 @@
 		3F8D47AC294857D2004A6A2B /* NavigationToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D47AA294857D2004A6A2B /* NavigationToolbar.swift */; };
 		3FB0FCA62941D2BF00B413C3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB0FCA42941D2B100B413C3 /* Colors.xcassets */; };
 		3FB0FCA72941D2BF00B413C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB0FCA52941D2BE00B413C3 /* Images.xcassets */; };
+		3FB2A3D0295A48A600E79A4E /* ToggleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2A3CF295A48A600E79A4E /* ToggleTest.swift */; };
 		3FE0A1D8295398C300124BCA /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0A1D7295398C300124BCA /* FeedView.swift */; };
 		3FE0A1DA295398CC00124BCA /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0A1D9295398CC00124BCA /* DiscoverView.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		3F8D47AA294857D2004A6A2B /* NavigationToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationToolbar.swift; sourceTree = "<group>"; };
 		3FB0FCA42941D2B100B413C3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3FB0FCA52941D2BE00B413C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3FB2A3CF295A48A600E79A4E /* ToggleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleTest.swift; sourceTree = "<group>"; };
 		3FE0A1D7295398C300124BCA /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		3FE0A1D9295398CC00124BCA /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 				3F046DCF293AF0500081BDC5 /* Assets.xcassets */,
 				3FB0FCA52941D2BE00B413C3 /* Images.xcassets */,
 				3F046DD1293AF0500081BDC5 /* Preview Content */,
+				3FB2A3CF295A48A600E79A4E /* ToggleTest.swift */,
 			);
 			path = FiskerNavigationPOC;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				3F8D47A7294845C3004A6A2B /* CarDetailsView.swift in Sources */,
 				3F046DCC293AF04F0081BDC5 /* FiskerNavigationPOCApp.swift in Sources */,
 				3F08DA68294A3B010035043B /* MyFisker.swift in Sources */,
+				3FB2A3D0295A48A600E79A4E /* ToggleTest.swift in Sources */,
 				3FE0A1DA295398CC00124BCA /* DiscoverView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

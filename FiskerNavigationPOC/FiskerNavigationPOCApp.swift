@@ -20,8 +20,8 @@ extension EnvironmentValues {
 
 @main
 struct FiskerNavigationPOCApp: App {
-    
     @State private var safeAreaInsets: EdgeInsets = EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+//    @StateObject var homeViewModel = HomeView.ViewModel()
     
 //    init() {
 //        UITextView.appearance().backgroundColor = .clear
@@ -48,7 +48,7 @@ struct FiskerNavigationPOCApp: App {
                     }
                 }
                 
-                HomeView()
+                HomeView(viewModel: HomeView.ViewModel())
                     .environment(\.safeAreaInsets, safeAreaInsets)
             }
         }

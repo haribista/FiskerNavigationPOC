@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ConnectedCarView: View {
     
-    @State var showCarDetailsView = false
-    
+    @EnvironmentObject var homeViewModel: HomeView.ViewModel
+
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -24,7 +24,9 @@ struct ConnectedCarView: View {
             Spacer()
             
             Button {
-                showCarDetailsView = true
+                homeViewModel.resetNavigation {
+                    homeViewModel.showCarDetailsView = true
+                }
             } label: {
                 Text("go Car Details View")
                     .font(.title)
@@ -32,7 +34,7 @@ struct ConnectedCarView: View {
             
             Spacer()
             
-            NavigationLink(isActive: $showCarDetailsView) {
+            NavigationLink(isActive: $homeViewModel.showCarDetailsView) {
                 CarDetailsView()
             } label: {}
         }

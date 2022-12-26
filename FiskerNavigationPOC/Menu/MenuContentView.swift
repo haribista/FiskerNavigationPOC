@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct MenuContentView: View {    
     var onMenuItemSelected: (MenuItemType?) -> ()
     
@@ -77,7 +76,7 @@ struct MenuContentView_Previews: PreviewProvider {
     static var previews: some View {
         MenuContentView() { selectedMenuItemType in
             if let selectedMenuItemType = selectedMenuItemType {
-                print("menu selected: \(selectedMenuItemType.rawValue)")
+                print("menu selected: \(selectedMenuItemType)")
             }
         }
     }
