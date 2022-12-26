@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var showMenu = true
-
-    @State private var selectedMenuItemType: MenuItemType? = nil
+    @State var showMenu = false
+    
+    @State private var showAccount = false
+    @State private var showMyFisker = false
+    
+    func resetNavigation() {
+        showAccount = false
+        showMyFisker = false
+    }
     
     var body: some View {
         ZStack {
@@ -35,25 +41,36 @@ struct HomeView: View {
                     }
                     .fiskerToolbar(title: "Fisker", showMenu: true)
                     
-                    ForEach(MenuItemType.allCases) { menuItemType in
-                        NavigationLink(
-                            destination: menuItemType.destinationView(),
-                            tag: menuItemType,
-                            selection: $selectedMenuItemType
-                        ) {
-                            EmptyView()
-                        }
-                    }
+                    NavigationLink(isActive: $showAccount) {
+                        AccountView()
+                    } label: {}
+                    
+                    NavigationLink(isActive: $showMyFisker) {
+                        MyFiskerView()
+                    } label: {}
                 }
             }
             
             MenuView(showMenu: showMenu) { selectedMenuItemType in
-                showMenu = false
-                let animationDuration: Double = 0.35
-                // waiting for menu animation to finish before navigating to other destination
-                if let selectedMenuItemType = selectedMenuItemType {
+                UINavigationBar.setAnimationsEnabled(false)
+                resetNavigation()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                    UINavigationBar.setAnimationsEnabled(true)
+                    self.showMenu = false
+                    
+                    let animationDuration: Double = 0.40
                     DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
-                        self.selectedMenuItemType = selectedMenuItemType
+                        if let selectedMenuItemType = selectedMenuItemType {
+                            switch selectedMenuItemType {
+                            case .MyFisker:
+                                self.showMyFisker = true
+                            case .Account:
+                                self.showAccount = true
+                            }
+                        } else {
+                            
+                        }
                     }
                 }
             }
