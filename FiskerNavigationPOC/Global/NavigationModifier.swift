@@ -18,3 +18,15 @@ struct NavigationModifier: ViewModifier {
             }
     }
 }
+
+struct NavigationModifierExtra: ViewModifier {
+    var title: String
+    var showMenu = true
+    
+    func body(content: Content) -> some View {
+        content
+            .toolbar {
+                NavigationToolbarExtra(title: title, showMenu: showMenu)
+            }
+    }
+}

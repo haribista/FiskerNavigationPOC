@@ -36,9 +36,13 @@ struct ConnectedCarView: View {
             
             NavigationLink(isActive: $homeViewModel.showCarDetailsView) {
                 CarDetailsView()
+                    .environmentObject(homeViewModel)
             } label: {}
         }
         .padding(30)
+        .onAppear {
+            print("ConnectedCarView")
+        }
     }
 }
 

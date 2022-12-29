@@ -21,6 +21,13 @@ extension View {
         modifier(NavigationModifier(title: title, showMenu: showMenu))
     }
     
+    func fiskerToolbarExtra(
+        title: String,
+        showMenu: Bool = true
+    ) -> some View {
+        modifier(NavigationModifierExtra(title: title, showMenu: showMenu))
+    }
+    
     func onNotification(
         _ notificationName: Notification.Name,
         perform action: @escaping () -> Void
@@ -43,6 +50,30 @@ extension View {
 }
 
 struct NavigationToolbar: ToolbarContent {
+    @State var title: String
+    @State var showMenu = true
+
+    var body: some ToolbarContent {
+        
+        ToolbarItem(placement: .principal) {
+            Text(title)
+        }
+        
+        ToolbarItem(placement: .navigationBarTrailing) {
+            if showMenu {
+                Button {
+                    NotificationCenter.default.post(name: Notification.menuToggleNotification, object: nil)
+                } label: {
+                    Image("Menu_Sml")
+                        .renderingMode(.template)
+                        .foregroundColor(.black)
+                }
+            }
+        }
+    }
+}
+
+struct NavigationToolbarExtra: ToolbarContent {
     @State var title: String
     @State var showMenu = true
 

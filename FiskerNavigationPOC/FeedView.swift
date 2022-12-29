@@ -9,7 +9,23 @@ import SwiftUI
 
 struct FeedView: View {
     var body: some View {
-        Text("FeedView")
+        VStack {
+            Text("FeedView")
+            Text("FeedView")
+        }
+        .navigationBarItems(
+            leading:
+                Button("Leading") {
+                print("leading")
+            },
+            trailing:
+                Button("Trailing") {
+                    print("leading")
+                }
+        )
+        .onAppear {
+            print("FeedView")
+        }
     }
 }
 

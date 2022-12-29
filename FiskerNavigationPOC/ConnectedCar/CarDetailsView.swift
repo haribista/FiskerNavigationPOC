@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct CarDetailsView: View {
+    @EnvironmentObject var homeViewModel: HomeView.ViewModel
+    
     var body: some View {
         VStack {
             Text("Car Details View")
             
-            NavigationLink(destination: CarDetailDetailsView()) {
+            NavigationLink(destination: CarDetailDetailsView().environmentObject(homeViewModel)) {
                 Text("go to Details Details")
             }
         }
@@ -21,9 +23,20 @@ struct CarDetailsView: View {
 }
 
 struct CarDetailDetailsView: View {
+    
+    @EnvironmentObject var homeViewModel: HomeView.ViewModel
+    
     var body: some View {
-        Text("Car Detail Details View")
-            .fiskerToolbar(title: "Fisker", showMenu: true)
+        VStack {
+            Text("Car Detail Details View")
+            Button {
+                homeViewModel.resetNavigationAnimated()
+            } label: {
+                Text("Go to home")
+            }
+
+        }
+        .fiskerToolbar(title: "Fisker", showMenu: true)
     }
 }
 

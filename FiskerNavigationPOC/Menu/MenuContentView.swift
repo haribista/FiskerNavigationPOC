@@ -43,7 +43,7 @@ struct MenuContentView: View {
                 }
                 
                 Button {
-                    onMenuItemSelected(nil)
+                    onMenuItemSelected(.Home)
                 } label: {
                     Text("Home")
                         .font(.title)

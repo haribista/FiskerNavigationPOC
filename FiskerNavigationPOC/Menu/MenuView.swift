@@ -10,6 +10,7 @@ import SwiftUI
 enum MenuItemType {
     case MyFisker
     case Account
+    case Home
 }
 
 struct MenuView: View {

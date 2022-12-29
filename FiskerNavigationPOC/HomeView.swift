@@ -7,78 +7,42 @@
 
 import SwiftUI
 
-extension HomeView {
-    @MainActor class ViewModel: ObservableObject {
-        @Published var showMenu = false
-        
-        @Published var showAccount = false
-        @Published var showMyFisker = false
-        @Published var showCarDetailsView = false
-        
-        func resetNavigation(with completion:@escaping () -> Void) {
-            UINavigationBar.setAnimationsEnabled(false)
-            showAccount = false
-            showMyFisker = false
-            showCarDetailsView = false
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                UINavigationBar.setAnimationsEnabled(true)
-                completion()
-            }
-        }
-        
-        func onMenuItemSelected(with selectedMenuItemType: MenuItemType?) {
-            if let selectedMenuItemType = selectedMenuItemType {
-                // Step 1: reset navigation
-                resetNavigation {
-                    // step 2: hide menu with animation
-                    self.showMenu = false
-                    
-                    // step 3: when hide menu animation completes, navigate to destination
-                    let animationDuration: Double = 0.4
-                    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
-                        switch selectedMenuItemType {
-                        case .MyFisker:
-                            self.showMyFisker = true
-                        case .Account:
-                            self.showAccount = true
-                        }
-                    }
-                }
-            } else {
-                showMenu = false
-            }
-        }
-    }
+enum TabItemType {
+    case connectedCar
+    case feed
+    case discover
 }
 
 struct HomeView: View {
-
     @StateObject var viewModel: ViewModel
+    @State var selectedTab = TabItemType.feed
 
     var body: some View {
         ZStack {
             NavigationView {
                 ZStack {
-                    TabView {
+                    TabView(selection: $selectedTab) {
                         ConnectedCarView()
                             .environmentObject(viewModel)
                             .tabItem {
                                 Label("Car", systemImage: "tray.and.arrow.down.fill")
                             }
+                            .tag(TabItemType.connectedCar)
                         FeedView()
                             .tabItem {
                                 Label("Feed", systemImage: "tray.and.arrow.up.fill")
                             }
+                            .tag(TabItemType.feed)
+                         
                         DiscoverView()
                             .tabItem {
                                 Label("Discover", systemImage: "person.crop.circle.fill")
                             }
+                            .tag(TabItemType.discover)
                     }
                     .onMenuToggleNotification {
                         viewModel.showMenu = true
                     }
-                    .fiskerToolbar(title: "Fisker", showMenu: true)
                     
                     NavigationLink(isActive: $viewModel.showAccount) {
                         AccountView()
@@ -88,6 +52,32 @@ struct HomeView: View {
                         MyFiskerView()
                     } label: {}
                 }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                                        
+                    ToolbarItem(placement: .principal) {
+                        Button {
+                            
+                        } label: {
+                            if selectedTab == .feed {
+                                Text("View All")
+                            } else {
+                                Text("")
+                            }
+                        }
+                    }
+
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            NotificationCenter.default.post(name: Notification.menuToggleNotification, object: nil)
+                        } label: {
+                            Image("Menu_Sml")
+                                .renderingMode(.template)
+                                .foregroundColor(.black)
+                        }
+                    }
+                }
+                
             }
             .navigationViewStyle(.stack)
             
